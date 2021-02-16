@@ -83,19 +83,22 @@ public class saveData extends functionalities {
             //End of save data process
         }
 
-//        //print data
-//        System.out.println("Length: " + data.length);
-//        for (int j = 0; j < data.length; j++) {
-//            System.out.println("\n\n\tPerson #" + (j+1));
-//            System.out.print("==========================");
-//            System.out.println(
-//                    "\nDPI: " + data[j][0] +
-//                            "\nNombre: " + data[j][1] +
-//                            "\nEdad: " + data[j][2]
-//            );
-//            System.out.print("==========================");
-//            try {Thread.sleep(500);} catch (InterruptedException e){/*ignore*/}
-//        }
+        // Sorting data process
+        data = sorter(data);
+
+        //print data
+        System.out.println("Length: " + data.length);
+        for (int j = 0; j < data.length; j++) {
+            System.out.println("\n\n\tPerson #" + (j+1));
+            System.out.print("==========================");
+            System.out.println(
+                    "\nDPI: " + data[j][0] +
+                            "\nNombre: " + data[j][1] +
+                            "\nEdad: " + data[j][2]
+            );
+            System.out.print("==========================");
+            try {Thread.sleep(500);} catch (InterruptedException e){/*ignore*/}
+        }
     }
 
 }

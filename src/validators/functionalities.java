@@ -40,16 +40,39 @@ public class functionalities {
         return false;
     }
 
-    public int toNumber(String number){
+    public int toInt(String number){
         return Integer.parseInt(number);
+    }
+
+    public long toLong(String number){
+
+        return Long.parseLong(number);
     }
 
     public String[][] sorter(String[][] persons){
 
         for (int i = 0; i < persons.length -1; i++){
             for (int j = i+1; j < persons.length; j++) {
-                //in process
-                System.out.println("In process :D");
+
+                if (toLong(persons[i][0]) > toLong(persons[j][0])){
+                    String temporalDPI, temporalName, temporalAge;
+
+                    // Sorting DPI index
+                    temporalDPI = persons[i][0];
+                    persons[i][0] = persons[j][0];
+                    persons[j][0] = temporalDPI;
+
+                    // Sorting name index
+                    temporalName = persons[i][1];
+                    persons[i][1] = persons[j][1];
+                    persons[j][1] = temporalName;
+
+                    // Sorting age index
+                    temporalAge = persons[i][2];
+                    persons[i][2] = persons[j][2];
+                    persons[j][2] = temporalAge;
+
+                }
             }
         }
 
@@ -61,7 +84,7 @@ public class functionalities {
         *
         * */
 
-        return null;
+        return persons;
     }
 
 }
