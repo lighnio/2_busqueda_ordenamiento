@@ -84,20 +84,55 @@ public class saveData extends functionalities {
         }
 
         // Sorting data process
-        data = sorter(data);
+        //data = sorter(data);
+    }
 
+    public void print(){
         //print data
-        System.out.println("Length: " + data.length);
+        System.out.println("\n\nAmount of Persons: " + data.length);
         for (int j = 0; j < data.length; j++) {
-            System.out.println("\n\n\tPerson #" + (j+1));
+            System.out.println("\tPerson #" + (j+1));
             System.out.print("==========================");
             System.out.println(
                     "\nDPI: " + data[j][0] +
                             "\nNombre: " + data[j][1] +
                             "\nEdad: " + data[j][2]
             );
-            System.out.print("==========================");
+            System.out.println("==========================");
             try {Thread.sleep(500);} catch (InterruptedException e){/*ignore*/}
+        }
+    }
+
+    public void sort(){
+        // Sorting data process
+        data = sorter(data);
+    }
+
+    public void finder(){
+        Scanner entry = new Scanner(System.in);
+        System.out.print("Enter the DPI do you want to find: ");
+        String dpi = entry.next();
+        int index;
+
+        if (search(data, dpi)){
+            System.out.println("Yeah, result found");
+
+            for (int i = 0; i < data.length; i++) {
+                if (data[i][0].equals(dpi)){
+                    index = i;
+                    System.out.println("\tPerson #" + (index+1));
+                    System.out.print("==========================");
+                    System.out.println(
+                            "\nDPI: " + data[index][0] +
+                                    " - Nombre: " + data[index][1] +
+                                    " - Edad: " + data[index][2]
+                    );
+                    System.out.print("==========================");
+                    break;
+                }
+            }
+        } else {
+            System.out.println("Sorry, no matches found.");
         }
     }
 
